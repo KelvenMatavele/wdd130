@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #055a05;
+    --accent1-color: #333;
+    --accent2-color: #e6f2e6;
+    --body-font: Arial, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +12,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
+    font-family: var(--body-font);
+    /* Usando a variável */
+    color: var(--accent1-color);
+    /* Usando a variável */
 }
 
 header,
@@ -16,6 +25,7 @@ footer {
     margin: 0 auto;
 }
 
+/* --- CABEÇALHO --- */
 header {
     display: flex;
     flex-direction: column;
@@ -37,10 +47,11 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #055a05;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
+/* --- HERO (Imagem grande com texto sobreposto) --- */
 .hero {
     position: relative;
     margin-bottom: 20px;
@@ -57,30 +68,48 @@ nav a {
     top: 20px;
     width: 100%;
     text-align: center;
+    background-color: rgba(51, 51, 51, 0.8);
     color: #fff;
+    padding: 10px;
     text-shadow: 2px 2px 4px #000;
 }
 
+.hero article {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+}
+
+/* O Page Audit exige que a imagem dentro do article flutue à direita */
+.hero article img {
+    float: right;
+    width: 125px;
+    margin-left: 15px;
+}
+
+/* --- SEÇÕES (History e Adventure) --- */
 section {
     margin-bottom: 30px;
 }
 
 h2 {
     margin-bottom: 10px;
-    color: #055a05;
+    color: var(--primary-color);
 }
 
-.about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+p {
+    line-height: 1.6;
+    /* Dá um respiro entre as linhas */
+    margin-bottom: 15px;
+    /* Separa os parágrafos */
+    max-width: 70ch;
+    /* Limita a largura do texto a ~70 caracteres para não cansar a vista */
 }
 
-.about-content img {
-    width: 200px;
-    height: auto;
-}
-
+/* --- RODAPÉ --- */
 footer {
     display: flex;
     justify-content: space-between;
